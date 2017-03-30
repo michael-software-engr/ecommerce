@@ -1,0 +1,57 @@
+<!-- ... edited by app gen (product resource) -->
+
+    <div id="left_column" class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Categories</div>
+
+        <div class="list-group">
+          <a href="#" class="list-group-item">Groceries</a>
+          <a href="#" class="list-group-item">Engines</a>
+          <a href="#" class="list-group-item">Power Supplies</a>
+          <a href="#" class="list-group-item">Tools</a>
+          <a href="#" class="list-group-item">Paper Products</a>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Filter By</div>
+
+        <div class="list-group">
+          <a href="#" class="list-group-item">Manufacturer</a>
+          <a href="#" class="list-group-item">Engine</a>
+          <a href="#" class="list-group-item">Power Supply</a>
+          <a href="#" class="list-group-item">Capacity</a>
+          <a href="#" class="list-group-item">Sweetness</a>
+        </div>
+      </div>
+
+      <hr>
+
+      <a href="#">
+        <img class="img-responsive" src="https://placehold.it/400x170/654321?text=SALE!">
+      </a>
+
+      <hr>
+
+      <div id="special_offers" class="panel panel-default">
+        <div class="panel-heading">Special Offers</div>
+
+        <div class="panel-body">
+          <% @special_offers.each do |special_offer| %>
+            <div class="media">
+              <div class="media-left">
+                <%= link_to product_path(special_offer) do %>
+                  <%= image_tag special_offer.media, class: 'panel-image-preview' %>
+                <% end -%>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= special_offer.name %></h4>
+                Brief description
+                <br>
+                <strong>$ <%= special_offer.price %></strong>
+              </div>
+            </div>
+          <% end -%>
+        </div>
+      </div>
+    </div>

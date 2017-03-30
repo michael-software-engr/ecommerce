@@ -1,0 +1,92 @@
+// ... edited by app gen ('grayscale' theme)
+
+// $intro_background_opacity: 0.0;
+$intro_text_shadow: $mocha;
+
+.intro {
+  display: table;
+  width: 100%;
+  height: auto;
+
+  // ...
+  min-height: 680px;
+
+  padding: 100px 0;
+  text-align: center;
+
+  color: $whitish;
+
+  background: url(asset-path('theme/intro-bg.jpg')) no-repeat bottom center scroll;
+  background-color: #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+  .intro-body {
+    // ... center vertically, original, working.
+    // display: table-cell;
+    // vertical-align: middle;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    // ... https://stackoverflow.com/questions/13239549/relative-parent-absolute-positioning-vertically-by-percentage
+    position: relative;
+
+    // ... 50% of height from top of div
+    top: 50vh;
+
+    .brand-heading {
+      font-size: 40px;
+
+      // ...
+      padding-bottom: 4px;
+      margin-bottom: 0;
+
+      // color: $whitish;
+      // background-color: rgba(0, 0,0, $intro_background_opacity);
+      text-shadow: 3px 3px 2px $intro_text_shadow;
+    }
+
+    .intro-text {
+      font-size: 18px;
+      font-weight: 800;
+
+      // color: $whitish;
+      // background-color: rgba(0, 0, 0, $intro_background_opacity);
+      text-shadow: 2px 2px 1px $intro_text_shadow;
+    }
+
+    a {
+      background-color: #aaa;
+    }
+  }
+}
+
+@media(min-width:768px) {
+  .intro {
+    height: 100%;
+    padding: 0;
+  }
+
+  // ...
+  .intro .intro-body .brand-heading {
+    font-size: 0.74em;
+  }
+
+  // ... I don't know if this is even needed
+  .intro .intro-body {
+    font-size: 100px;
+  }
+
+  // ... original
+  // .intro .intro-body .brand-heading {
+  //   font-size: 100px;
+  // }
+
+  .intro .intro-body .intro-text {
+    font-size: 36px;
+  }
+}

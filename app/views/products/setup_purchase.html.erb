@@ -1,0 +1,81 @@
+<!-- ... edited by app gen (product resource) -->
+
+<% provide :title, "Buying **#{@product.name}**..." %>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<button id="customButton" style="visibility: hidden;">Purchase</button>
+
+<%= render template: 'products/show' %>
+
+<script>
+var transactionNotSubmitted = true;
+
+/* global StripeCheckout */
+
+var handler = StripeCheckout.configure({
+  key: '<%= @publishable_key %>',
+  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+  locale: 'auto',
+  token: function tokenCB(token) {
+    transactionNotSubmitted = false;
+
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+    $.ajax({
+      url: '<%= buy_products_path %>',
+      // dataType: 'json',
+      type: 'post',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        // ...
+        id: '<%= @product.id %>',
+        token: token,
+        email: token.email
+      }),
+      processData: false,
+      success: function successCB(data) {
+        console.log('SUCCESS...');
+        console.log(data);
+      },
+      error: function errorCB(jqXhr, textStatus, errorThrown ) {
+        console.log(jqXhr.responseText);
+        console.log(textStatus);
+        console.log(errorThrown);
+      }
+    });
+  }
+});
+
+document.getElementById('customButton').addEventListener('click', function eventListenerCB(ev) {
+  // Open Checkout with further options:
+  handler.open({
+    name: 'Stripe.com',
+    description: '<%= @product.name %>',
+    // zipCode: true,
+    amount: parseInt('<%= @product.price * 100 %>', 10),
+
+    closed: function stripeClosed() {
+      // https://stackoverflow.com/questions/15555567/rails-how-to-use-jquery-to-redirect-to-root-page-in-different-environments
+      console.log('Stripe closed, the referrer... ' + '<%= request.referer %>');
+      console.log({ transactionNotSubmitted: transactionNotSubmitted });
+
+      if (transactionNotSubmitted) {
+        window.location = '<%= request.referer %>';
+      }
+    }
+  });
+
+  ev.preventDefault();
+});
+
+// Close Checkout on page navigation: /
+window.addEventListener('popstate', function popStateCB() {
+  handler.close();
+});
+
+$(document).ready(function buttonClickCB() {
+  document.getElementById('customButton').click();
+});
+
+</script>

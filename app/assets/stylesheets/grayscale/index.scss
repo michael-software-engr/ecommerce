@@ -1,0 +1,178 @@
+// ... edited by app gen ('grayscale' theme)
+
+@import "../flash";
+
+body {
+  width: 100%;
+  height: 100%;
+
+  // ...
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  font-weight: 300;
+  color: $whitish;
+  background-color: $blackish;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+// ...
+#flash {
+  @extend .flash;
+
+  margin-top: 80px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 35px;
+
+  // ...
+  // text-transform: uppercase;
+
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+p {
+  margin: 0 0 25px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media(min-width:768px) {
+  p {
+    margin: 0 0 35px;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+
+a {
+  color: #42dca3;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #1d9b6c;
+}
+
+.light {
+  font-weight: 400;
+}
+
+#about {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #08A888;
+}
+
+#services {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: brown;
+
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #222;
+    font-size: 1.08em;
+  }
+}
+
+#more_info {
+  color: #b1aca1;
+  background-color: #222;
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: #b1aca1;
+    font-size: 0.94em;
+  }
+
+  li {
+    padding-bottom: 8px;
+  }
+
+  #last_row {
+    padding: 0;
+  }
+}
+
+@media(min-width:767px) {
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+
+    width: 100%;
+  }
+}
+
+ul.banner-social-buttons {
+  margin-top: 0;
+}
+
+@media(max-width:1199px) {
+  ul.banner-social-buttons {
+    margin-top: 15px;
+  }
+}
+
+@media(max-width:767px) {
+  ul.banner-social-buttons li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  ul.banner-social-buttons li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+footer {
+  padding: 50px 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+::-moz-selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255,255,255,.2);
+}
+
+::selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255,255,255,.2);
+}
+
+img::selection {
+  background: 0 0;
+}
+
+img::-moz-selection {
+  background: 0 0;
+}
+
+body {
+  webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}

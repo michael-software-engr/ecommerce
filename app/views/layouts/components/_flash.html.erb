@@ -1,0 +1,27 @@
+<!-- ... edited by app gen (layout) -->
+
+<% if !flash.empty? %>
+  <div id="flash">
+    <div class="container">
+      <div class="col-md-12">
+        <% flash.each do |type, message| %>
+          <div id="actual" class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+
+            <% case type %>
+            <% when 'successful_purchase' %>
+              Thank you for purchasing '<strong><%= message['name'] %></strong>' for '<strong><%= number_to_currency message['price'] %></strong>'.
+            <% else %>
+              <%= message %>
+            <% end -%>
+          </div>
+        <% end %>
+      </div>
+
+      <% flash.discard %>
+    </div>
+  </div>
+<% end -%>

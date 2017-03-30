@@ -1,0 +1,104 @@
+// ... edited by app gen ('grayscale' theme)
+
+.navbar-custom {
+  text-transform: uppercase;
+
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-color: $blackish;
+
+  a {
+    // ... from MDN, text-shadow: offset-x | offset-y | blur-radius | color
+    text-shadow: 2px 2px 3px #000;
+
+    color: $whitish;
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+
+    i {
+      text-shadow: 2px 2px 2px #000;
+      border-radius: 4px;
+      padding: 4px;
+      background-color: green;
+      // background-color: #42dca3;
+    }
+
+    .navbar-toggle {
+      padding: 4px 6px;
+      font-size: 16px;
+
+      // ...
+      color: $whitish;
+      // color: red;
+    }
+
+    .navbar-toggle:focus, .navbar-toggle:active {
+      outline: 0;
+    }
+  }
+
+  .navbar-brand:focus {
+    outline: 0;
+  }
+
+  .nav {
+    li {
+      a {
+        // ... add padding if nav bar items are too far apart or breaks wrong.
+        padding-left: 10px;
+        padding-right: 10px;
+        text-transform: none;
+        font-size: 16px;
+
+        -webkit-transition: background .3s ease-in-out;
+        -moz-transition: background .3s ease-in-out;
+        transition: background .3s ease-in-out;
+      }
+
+      a:hover {
+        outline: 0;
+        color: rgba(255, 255, 255, .8);
+        background-color: transparent;
+      }
+
+      a:focus,
+      a:active {
+        outline: 0;
+        background-color: transparent;
+      }
+    }
+
+    li.active {
+      outline: 0;
+
+      a {
+        background-color: rgba(255,255,255,.3);
+      }
+
+      a:hover {
+        color: $whitish;
+      }
+    }
+  }
+}
+
+@media(min-width:768px) {
+  .navbar-custom {
+    padding: 20px 0;
+    border-bottom: 0;
+    letter-spacing: 1px;
+    background: 0 0;
+    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    transition: background .5s ease-in-out,padding .5s ease-in-out;
+
+    &.top-nav-collapse {
+      padding: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      background: $blackish;
+    }
+  }
+}

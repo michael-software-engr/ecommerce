@@ -1,0 +1,88 @@
+// ... edited by app gen (layout)
+
+@import "flash";
+
+body {
+  // ... for the nav bar
+  padding-top: 50px;
+  @media (min-width: 768px) { padding-top: 92px; }
+}
+
+.navbar { background-color: #222; }
+#flash { @extend .flash; }
+#map { height: 100%; }
+
+.base {
+  min-height: 700px;
+  background-color: white;
+  padding: 20px;
+}
+
+#devise, #user {
+  @extend .base;
+
+  #shared_links {
+    .btn { margin-bottom: 0.8em; }
+  }
+
+  #unit {
+    width: 100%;
+    @media (min-width: 768px) { width: 64%; }
+
+    background-color: #222;
+    // background-color: rgba(0, 0, 0, 0.84);
+    border-radius: 8px;
+    padding: 16px;
+    padding-bottom: 50px;
+    margin: auto;
+
+    #error_container {
+      padding-left: 15px;
+      padding-right: 15px;
+
+      #error_expl {
+        width: 100%;
+
+        ul {
+          li {
+            i { color: #A9444B; }
+            color: black;
+          }
+        }
+      }
+    }
+
+    #title {
+      text-align: center;
+      h2 {
+        color: #fff;
+        text-shadow: 2px 2px 3px #42dca3;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    #new_user, #edit_user {
+      font-size: 1.22em;
+      color: #fff;
+    }
+
+    #cancel_account {
+      padding-left: 0;
+      #crap {
+        margin-left: 0;
+        @media (min-width: 992px) { margin-left: 9px; }
+      }
+    }
+  }
+}
+
+#under_construction {
+  @extend .base;
+
+  text-align: center;
+  min-height: 400px;
+  color: #222;
+
+  h1 { display: inline; }
+}

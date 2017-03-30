@@ -1,0 +1,40 @@
+<!-- ... edited by app gen (layout) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= ApplicationHelper::App::TITLE %><%= " | #{content_for :title}" if content_for? :title %></title>
+
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <!-- <#link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
+  <!-- <#link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> -->
+
+  <!-- # ... async: true breaks the nav bar -->
+  <%= javascript_include_tag 'theme/manifest', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <!-- <#%= javascript_include_tag 'theme/manifest', 'data-turbolinks-track': 'reload', async: Rails.env.production? %> -->
+  <!-- <#%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %> -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- ... -->
+  <%= render 'layouts/components/shim' %>
+  <%= render 'layouts/components/navigation' %>
+  <%= render 'layouts/components/flash' %>
+
+  <%= yield %>
+
+  <%= render 'layouts/components/more_info' %>
+</body>
+</html>

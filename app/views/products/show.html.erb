@@ -1,0 +1,40 @@
+<!-- ... edited by app gen (product resource) -->
+
+<% provide :title, @product.name %>
+
+<%= stylesheet_link_tag 'index/show', media: 'all', 'data-turbolinks-track': 'reload'  %>
+
+<div id="show">
+  <div class="media">
+    <div class="media-left">
+      <%= link_to '#' do %>
+        <%= image_tag @product.media, class: 'media-object' %>
+      <% end -%>
+    </div>
+    <div class="media-body">
+      <%= content_tag :h4, @product.name, class: 'media-heading' %>
+
+      <hr>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @product.description %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @product.price %>
+      </p>
+
+      <p>
+        <strong>In stock:</strong>
+        <%= @product.in_stock %>
+      </p>
+
+      <p>
+        <strong>Sku:</strong>
+        <%= @product.sku %>
+      </p>
+    </div>
+  </div>
+</div>

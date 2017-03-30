@@ -1,0 +1,57 @@
+<!-- ... edited by app gen (Devise views) -->
+
+<div id="shared_links">
+  <% bootstrap_marker = 'btn-default' %>
+  <% class_param = { class: "btn #{bootstrap_marker} btn-md" } %>
+
+  <%
+    show_login = controller_name != 'sessions' && controller_name == 'registrations' && action_name != 'edit' && action_name != 'update'
+
+    show_sign_up = devise_mapping.registerable? && controller_name != 'registrations'
+
+    show_forgot_your_pw = devise_mapping.recoverable? && (controller_name != 'passwords') && (controller_name != 'registrations')
+
+    show_confirm = devise_mapping.confirmable? && controller_name != 'confirmations' && action_name != 'edit'
+
+    show_unlock = devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' && action_name != 'edit'
+
+    show_omniauth = devise_mapping.omniauthable?
+  %>
+
+  <% if show_login or show_sign_up or show_forgot_your_pw or show_confirm or show_unlock or show_omniauth %>
+    <hr>
+  <% end -%>
+
+  <%- if show_login %>
+    <%= link_to "Log in instead", new_session_path(resource_name), class_param %>
+  <% end -%>
+
+  <%- if show_sign_up %>
+    <%= link_to "Sign up instead", new_registration_path(resource_name), class_param %>
+  <% end -%>
+
+  <%- if show_forgot_your_pw %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name), class_param %>
+  <% end -%>
+
+  <!-- =+= action_name != 'edit', I don't know why this was not present.
+        I'm assuming if you get to the edit page, then the account is already confirmed
+        and currently unlocked. -->
+
+  <%- if show_confirm %>
+    <%= link_to "Didn't receive confirmation instructions?",
+                new_confirmation_path(resource_name), class_param %>
+  <% end -%>
+
+  <%- if show_unlock %>
+    <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name),
+                class_param %><br /><br />
+  <% end -%>
+
+  <%- if show_omniauth %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to "Sign in with #{provider.to_s.titleize}",
+                  omniauth_authorize_path(resource_name, provider), class_param %><br />
+    <% end -%>
+  <% end -%>
+</div>

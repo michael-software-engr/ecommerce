@@ -1,0 +1,10 @@
+<!-- ... edited by app gen (product resource) -->
+
+<% if (product.id % 3) == 0 %>
+  <%= link_to "/reviews/#{product.id}", class: 'btn btn-success btn-xs', title: 'Reviews...' do %>
+    <% stars = 1 + ( product.id * 12) % 5 %>
+    <% stars.times do %>
+      <%= content_tag :span, nil, class: 'glyphicon glyphicon-star', aria: { hidden: true } %>
+    <% end -%>
+  <% end -%>
+<% end -%>

@@ -1,0 +1,30 @@
+<!-- edited by app gen (landing page) -->
+
+<div class="element-modal modal fade" id="modal<%= service.index %>" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="modal-body">
+          <div class="col-lg-4">
+            <%= image_tag service.image, class: 'img-responsive', alt: '' %>
+          </div>
+          <div class="col-lg-8">
+            <h3><%= service.name %></h3>
+            <hr class="star-primary">
+            <p><%= service.more_info %></p>
+
+            <button type="button" class="btn btn-primary">Subscribe</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<!-- ... edited by app gen (user resource generation) -->
+
+<% provide :title, "User #{@current_user.email}" %>
+
+<div id="user">
+  <h1>User <%= @current_user.name %></h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% %i[email media].each do |field| %>
+        <tr><td><%= field %></td><td><%= @current_user.public_send field %></td></tr>
+      <% end -%>
+
+      <tr>
+        <td>Products owned</td>
+        <td>
+          <ul class="list-group">
+            <% @current_user.products.each do |product| %>
+              <%= content_tag :li, class: 'list-group-item' do %>
+                <%= link_to product.name, product_path(product) %>
+              <% end -%>
+            <% end -%>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

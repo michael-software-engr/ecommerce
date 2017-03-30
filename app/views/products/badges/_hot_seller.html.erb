@@ -1,0 +1,7 @@
+<!-- ... edited by app gen (product resource) -->
+
+<% if (product.id % 6) == 0 %>
+  <%= link_to '/list_of_hot_sellers', class: 'btn btn-danger btn-xs', title: 'Current hot seller' do %>
+    <%= content_tag :span, nil, class: 'glyphicon glyphicon-fire', aria: { hidden: true } %>
+  <% end -%>
+<% end -%>

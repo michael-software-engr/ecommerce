@@ -1,0 +1,54 @@
+<!-- edited by app gen (landing page) -->
+
+<!--  The circle icons use Font Awesome's stacked icon classes.
+      For more information, visit http://fontawesome.io/examples/  -->
+<section id="services" class="container content-section text-center">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-10 col-lg-offset-1">
+        <h2>Services</h2>
+        <hr class="small">
+        <div class="row">
+
+          <% @services.each do |service| %>
+            <div class="col-md-3 col-sm-6">
+              <div class="service-item">
+
+                <%= link_to service.more_info_path, data: { toggle: 'modal' } do %>
+                  <%= content_tag :span,  class: 'fa-stack fa-4x' do %>
+                    <%= content_tag :i, nil, class: 'fa fa-circle fa-stack-2x' %>
+                    <%= content_tag :i, nil, class: "fa fa-#{service.icon} fa-stack-1x text-primary" %>
+                  <% end -%>
+                <% end %>
+
+                <h4><strong><%= service.name %></strong></h4>
+
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><%= number_to_currency service.price %>/month</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p><%= service.description %></p>
+                    <%= link_to 'Subscribe', service.subscribe_path, class: 'btn btn-primary' %>
+                    <hr>
+
+                    <%= link_to 'Learn More', "#modal#{service.index}",
+                                class: 'btn btn-default', data: { toggle: 'modal' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end -%>
+
+          <a href="#more_info" class="btn btn-circle page-scroll">
+            <i class="fa fa-angle-double-down animated"></i>
+          </a>
+        </div>
+        <!-- /.row (nested) -->
+      </div>
+      <!-- /.col-lg-10 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>

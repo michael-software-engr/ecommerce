@@ -1,0 +1,48 @@
+<!-- ... edited by app gen (product resource) -->
+
+    <div id="content" class="col-sm-9">
+      <% @products.each_slice(2) do |slice| %>
+        <div class="row">
+          <% slice.each do |product| %>
+            <div class="col-sm-6 card_custom">
+              <div class="panel">
+                <div class="panel-heading">
+                  <%= link_to product_path(product) do %>
+                    <%= image_tag product.media %>
+                  <% end -%>
+                </div>
+
+                <div class="panel-body">
+                  <div class="row pull-right">
+                    <a href="#facebook"><span class="fa fa-facebook fa-2x"></span></a>
+                    <a href="#twitter"><span class="fa fa-twitter fa-2x"></span></a>
+                    <a href="#share"><span class="glyphicon glyphicon-share-alt fa-2x"></span></a>
+                  </div>
+
+                  <%= content_tag :h3, product.name, class: 'name' %>
+                  <%= content_tag :div, product.description, class: 'description' %>
+                  <%= content_tag :div, Faker::Hipster.paragraph, class: 'long' %>
+
+                  <div class="col-xs-6 last_row">
+                    <%= content_tag :h3, '$ ' + product.price.to_s, class: 'price' %>
+                  </div>
+
+                  <div class="col-xs-6 last_row">
+                    <div class="row buttons pull-right">
+                      <%= button_to(
+                            'Buy',
+                            { action: :setup_purchase, controller: :products, id: product.id },
+                            form_class: 'form-inline',
+                            class: 'btn btn-primary'
+                          ) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end -%>
+        </div>
+      <% end -%>
+
+      <%= paginate @products %>
+    </div>

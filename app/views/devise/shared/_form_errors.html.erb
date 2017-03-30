@@ -1,0 +1,35 @@
+<!-- ... edited by app gen (Devise views) -->
+
+  <!-- DEBUG, HACK: HAS inline style! -->
+  <% if resource.errors.any? %>
+    <div id="error_container" class="form-group alert alert-dismissible fade in">
+      <div class="col-md-12">
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title pull-left">
+              <%= pluralize(resource.errors.count, 'error')
+              %> prohibited this <%= resource.model_name.human.downcase %> from being saved:
+            </h3>
+
+            <button type="button" class="close" data-dismiss="alert" style="margin-right: 20px">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="panel-body">
+            <ul class="list-group">
+            <% resource.errors.full_messages.each do |msg| %>
+              <li class="list-group-item">
+                <i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i>
+                <%= msg %>
+                </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

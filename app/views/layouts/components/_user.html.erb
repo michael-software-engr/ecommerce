@@ -1,0 +1,24 @@
+<!-- ... edited by app gen (layout) -->
+
+        <% if defined? current_user %>
+          <% if current_user %>
+            <li>
+              <%= link_to(
+                    path_or_id(edit_user_registration_path(current_user), 'page-top', append_id_to_path: false),
+                    class: 'page-scroll'
+                  ) do %>
+                <%= content_tag :i, nil, class: 'fa fa-user-circle-o fa-lg' %>
+              <% end -%>
+            </li>
+
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= render partial: 'layouts/components/page_scroll_link', locals: {
+                      text: 'Log In', path: path_or_id(new_user_session_path, 'page-top', append_id_to_path: false)
+                    } %></li>
+
+            <li><%= render partial: 'layouts/components/page_scroll_link', locals: {
+                      text: 'Sign Up', path: path_or_id(new_user_registration_path, 'page-top', append_id_to_path: false)
+                    } %></li>
+          <% end -%>
+        <% end -%>
